@@ -25,7 +25,8 @@
     "plugins": [
         "@typescript-eslint",
         "react",
-        "react-hooks"
+        "react-hooks",
+        "import-helpers"
     ],
     "rules": {
         "react-hooks/rules-of-hooks": "error",
@@ -36,6 +37,26 @@
             "error",
             {
               "endOfLine": "auto"
+            }
+          ],
+          "import-helpers/order-imports": [
+            "warn",
+            {
+              "newlinesBetween": "always",
+              "groups": [
+                ["/^react/", "/^next/"],
+                "module",
+                "/^@shared/",
+                "absolute",
+                "/^components/",
+                "/^pages/",
+                "/utils/",
+                "/^store/",
+                "/^styles/",
+                "/^templates/",
+                ["parent", "sibling", "index"]
+              ],
+              "alphabetize": { "order": "asc", "ignoreCase": true }
             }
           ]
     }
